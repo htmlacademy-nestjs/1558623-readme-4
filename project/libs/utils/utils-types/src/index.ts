@@ -1,1 +1,1 @@
-export * from './lib/utils-utils-types';
+export * from './lib/crud-repository.interface.js';
