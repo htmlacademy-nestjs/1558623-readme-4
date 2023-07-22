@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@project/shared/app-types": ["libs/shared/app-types/src/index.ts"],
-      "@project/utils/utils-core": ["libs/utils/utils-core/src/index.ts"]
+      "@project/utils/utils-core": ["libs/utils/utils-core/src/index.ts"],
+      "@project/utils/utils-types": ["libs/utils/utils-types/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
