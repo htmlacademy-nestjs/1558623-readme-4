@@ -10,15 +10,30 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2020", "dom"],
+    "lib": [
+      "es2020",
+      "dom"
+    ],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@project/shared/app-types": ["libs/shared/app-types/src/index.ts"],
-      "@project/utils/utils-core": ["libs/utils/utils-core/src/index.ts"],
-      "@project/utils/utils-types": ["libs/utils/utils-types/src/index.ts"]
+      "@blog-user/*": [
+        "apps/users/src/app/blog-user/*"
+      ],
+      "@project/shared/app-types": [
+        "libs/shared/app-types/src/index.ts"
+      ],
+      "@project/utils/utils-core": [
+        "libs/utils/utils-core/src/index.ts"
+      ],
+      "@project/utils/utils-types": [
+        "libs/utils/utils-types/src/index.ts"
+      ]
     }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
 }

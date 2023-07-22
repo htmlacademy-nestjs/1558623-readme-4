@@ -1,10 +1,11 @@
 import { Module } from '@nestjs/common';
-import { BlogUserModule } from './blog-user/blog-user.module';
+import { BlogUserModule } from '@blog-user/blog-user.module.js';
 import { AuthenticationModule } from './authentication/authentication.module';
 
 @Module({
   imports: [BlogUserModule, AuthenticationModule],
   controllers: [],
-  providers: [],
+  providers: []
 })
-export class AppModule {}
+export class AppModule {
+}
