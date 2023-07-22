@@ -10,6 +10,10 @@ export class AuthenticationService {
   constructor(private readonly blogUserRepository: BlogUserMemoryRepository) {
   }
 
+  public async getUserById(id: string): Promise<IUser> {
+    return this.blogUserRepository.findById(id);
+  }
+
   public async register(dto: CreateUserDto) {
     const { email, password } = dto;
     const existingUser = this.blogUserRepository.findByEmail(email);
