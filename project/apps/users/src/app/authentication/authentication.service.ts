@@ -12,7 +12,12 @@ export class AuthenticationService {
   }
 
   public async getUserById(id: string): Promise<IUser> {
-    return this.blogUserRepository.findById(id);
+    const existingUser = await this.blogUserRepository.findById(id);
+    if (!existingUser) {
+      throw new NotFoundException(AuthMessage.UserNotFoundById(id));
+    }
+
+    return existingUser;
   }
 
   public async verifyUser(dto: LoginUserDto): Promise<IUser> {
@@ -20,8 +25,8 @@ export class AuthenticationService {
 
     const existingUser = await this.blogUserRepository.findByEmail(email);
 
-    if (existingUser) {
-      throw new NotFoundException(AuthMessage.UserNotFound(email));
+    if (!existingUser) {
+      throw new NotFoundException(AuthMessage.UserNotFoundByEmail(email));
     }
 
     const blogUserEntity = new BlogUserEntity(existingUser);
