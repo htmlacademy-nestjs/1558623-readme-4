@@ -14,11 +14,8 @@ export class BlogUserMemoryRepository implements ICRUDRepository<BlogUserEntity,
 
   public async findByEmail(email: string): Promise<IUser | null> {
     const existingUser = Object.values(this.repository).find((item) => email === item.email);
-    if (!existingUser) {
-      return null;
-    }
 
-    return Promise.resolve(existingUser);
+    return Promise.resolve(existingUser || null);
   }
 
   public async create(item: BlogUserEntity): Promise<IUser | void> {
@@ -28,11 +25,6 @@ export class BlogUserMemoryRepository implements ICRUDRepository<BlogUserEntity,
   }
 
   public async update(id: string, item: BlogUserEntity): Promise<IUser | void> {
-    const existingUser = this.findById(id);
-    if (!existingUser) {
-      throw new Error('Item does not exist');
-    }
-
     const newUser = { ...item.toObject(), _id: id };
     this.repository[id] = newUser;
 
@@ -40,16 +32,6 @@ export class BlogUserMemoryRepository implements ICRUDRepository<BlogUserEntity,
   }
 
   public async destroy(id: string): Promise<void> {
-    const existingUser = this.findById(id);
-    if (!existingUser) {
-      throw new Error('User does not exist');
-    }
-
-    const deletionResult = delete this.repository[id];
-    if (!deletionResult) {
-      throw new Error('Failed to delete User');
-    }
-
-    return;
+    delete this.repository[id];
   }
 }
