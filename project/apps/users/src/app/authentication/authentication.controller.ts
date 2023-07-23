@@ -1,10 +1,10 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
-import { AuthenticationService } from './authentication.service.js';
-import { CreateUserDto } from './dto/create-user.dto.js';
+import { AuthenticationService } from './authentication.service';
+import { CreateUserDto } from './dto/create-user.dto';
 import { fillObject } from '@project/utils/utils-core';
-import { CreateUserRdo } from './rdo/create-user.rdo.js';
-import { LoginUserDto } from './dto/login-user.dto.js';
-import { GetUserRdo } from './rdo/get-user.rdo.js';
+import { CreateUserRdo } from './rdo/create-user.rdo';
+import { LoginUserDto } from './dto/login-user.dto';
+import { GetUserRdo } from './rdo/get-user.rdo';
 
 @Controller('auth')
 export class AuthenticationController {

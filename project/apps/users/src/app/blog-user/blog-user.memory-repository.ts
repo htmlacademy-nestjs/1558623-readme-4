@@ -1,5 +1,5 @@
 import { ICRUDRepository } from '@project/utils/utils-types';
-import { BlogUserEntity } from './blog-user.entity.js';
+import { BlogUserEntity } from './blog-user.entity';
 import { IUser } from '@project/shared/app-types';
 import { randomUUID } from 'node:crypto';
 import { Injectable } from '@nestjs/common';

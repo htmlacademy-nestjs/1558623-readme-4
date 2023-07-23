@@ -1,6 +1,6 @@
 import { IUser } from '@project/shared/app-types';
 import { compare, genSalt, hash } from 'bcrypt';
-import { SALT_ROUNDS } from './blog-user.constants.js';
+import { SALT_ROUNDS } from './blog-user.constants';
 
 export class BlogUserEntity implements IUser {
   public _id: string;
