@@ -6,7 +6,7 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class BlogUserMemoryRepository implements ICRUDRepository<BlogUserEntity, string, IUser> {
-  private repository: Record<string, IUser>;
+  private repository: Record<string, IUser> = {};
 
   public async findById(id: string): Promise<IUser | null> {
     return Promise.resolve(this.repository[id] || null);
