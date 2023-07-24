@@ -1,5 +1,6 @@
 export interface IPostQuote {
+  authorId: string;
   textContent: string;
-  author: string;
+  quoteAuthor: string;
   tagsList: string[];
 }

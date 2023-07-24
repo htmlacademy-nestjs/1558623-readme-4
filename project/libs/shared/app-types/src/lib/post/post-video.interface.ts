@@ -1,5 +1,6 @@
 export interface IPostVideo {
-  name: string;
-  link: string;
+  authorId: string;
+  title: string;
+  url: string;
   tagsList: string[];
 }

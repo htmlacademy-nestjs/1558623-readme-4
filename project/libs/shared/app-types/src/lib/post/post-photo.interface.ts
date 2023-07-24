@@ -1,4 +1,5 @@
 export interface IPostPhoto {
-  photo: string;
+  authorId: string;
+  url: string;
   tagsList: string[];
 }

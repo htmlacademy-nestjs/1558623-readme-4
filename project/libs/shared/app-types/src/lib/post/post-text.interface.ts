@@ -1,5 +1,6 @@
 export interface IPostText {
-  name: string;
+  authorId: string;
+  title: string;
   preview: string;
   textContent: string;
   tagsList: string[];
