@@ -1,6 +1,6 @@
 import { IPostAuthor, TPostType } from '@project/shared/app-types';
 
-export class GetPostRdo {
+export class PostRdo {
   type: TPostType;
   postAuthor: IPostAuthor;
   dateCreated: string;
