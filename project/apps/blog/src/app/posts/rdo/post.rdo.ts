@@ -1,7 +1,7 @@
-import { IAuthor, TPostType } from '@project/shared/app-types';
+import { IAuthor, PostType } from '@project/shared/app-types';
 
 export class PostRdo {
-  type: TPostType;
+  type: PostType;
   postAuthor: IAuthor;
   dateCreated: string;
   id: string;

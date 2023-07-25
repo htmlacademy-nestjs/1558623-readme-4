@@ -1,6 +1,7 @@
-export type TPostLink = 'link';
-export type TPostPhoto = 'photo';
-export type TPostQuote = 'quote';
-export type TPostText = 'text';
-export type TPostVideo = 'video';
-export type TPostType = TPostLink | TPostPhoto | TPostQuote | TPostText | TPostVideo;
+export enum PostType {
+  Link = 'link',
+  Photo = 'photo',
+  Qoute = 'quote',
+  Text = 'text',
+  Video = 'video',
+}
