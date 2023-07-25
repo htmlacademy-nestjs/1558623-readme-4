@@ -6,4 +6,4 @@ export * from './lib/post/post-photo.interface';
 export * from './lib/post/post-link.interface';
 export * from './lib/post/post-status.type';
 export * from './lib/post/post-type.type';
-export * from './lib/post/post-author.interface';
+export * from './lib/post/author.interface';

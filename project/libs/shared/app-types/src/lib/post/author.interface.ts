@@ -1,4 +1,4 @@
-export interface IPostAuthor {
+export interface IAuthor {
   id: string;
   name: string;
   email: string;
