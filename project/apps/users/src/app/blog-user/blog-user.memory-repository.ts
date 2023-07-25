@@ -13,25 +13,25 @@ export class BlogUserMemoryRepository implements ICRUDRepository<BlogUserEntity,
   }
 
   public async findByEmail(email: string): Promise<IUser | null> {
-    const existingUser = Object.values(this.repository).find((item) => email === item.Email);
+    const existingUser = Object.values(this.repository).find((item) => email === item.email);
 
     return Promise.resolve(existingUser || null);
   }
 
-  public async create(item: BlogUserEntity): Promise<IUser | void> {
+  public async create(item: BlogUserEntity): Promise<IUser> {
     const newUser = { ...item.toObject(), _id: randomUUID() };
     this.repository[newUser._id] = newUser;
     return Promise.resolve(newUser);
   }
 
-  public async update(id: string, item: BlogUserEntity): Promise<IUser | void> {
+  public async update(id: string, item: BlogUserEntity): Promise<IUser> {
     const newUser = { ...item.toObject(), _id: id };
     this.repository[id] = newUser;
 
     return Promise.resolve(newUser);
   }
 
-  public async destroy(id: string): Promise<void> {
+  public async delete(id: string): Promise<void> {
     delete this.repository[id];
   }
 }

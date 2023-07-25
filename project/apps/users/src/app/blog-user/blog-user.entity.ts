@@ -17,9 +17,9 @@ export class BlogUserEntity implements IUser {
     return {
       _id: this._id,
       name: this.name,
-      Email: this.Email,
+      email: this.email,
       passwordHash: this.passwordHash,
-      avatar: this.avatar
+      avatar: this.avatar,
     };
   }
 

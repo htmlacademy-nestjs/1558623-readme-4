@@ -14,7 +14,7 @@ import {
   ApiUnauthorizedResponse,
 } from '@nestjs/swagger';
 
-@Controller('auth')
+@Controller('users')
 export class AuthenticationController {
   constructor(private readonly authService: AuthenticationService) {
   }
