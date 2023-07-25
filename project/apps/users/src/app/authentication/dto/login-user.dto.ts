@@ -1,9 +1,10 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { UserNameLength, UserPasswordLength, UserPropsExample } from '@authentication/authentication.constants';
 
 export class LoginUserDto {
   @ApiProperty({
     description: 'Valid user email',
-    example: 'faker@fake.co',
+    example: UserPropsExample.Email,
     uniqueItems: true,
     required: true,
   })
@@ -11,8 +12,9 @@ export class LoginUserDto {
 
   @ApiProperty({
     description: 'Password',
-    minLength: 6,
-    maxLength: 12,
+    minLength: UserPasswordLength.Min,
+    maxLength: UserNameLength.Max,
+    example: UserPropsExample.Password,
     required: true,
   })
   password: string;

@@ -13,7 +13,7 @@ export class BlogUserMemoryRepository implements ICRUDRepository<BlogUserEntity,
   }
 
   public async findByEmail(email: string): Promise<IUser | null> {
-    const existingUser = Object.values(this.repository).find((item) => email === item.email);
+    const existingUser = Object.values(this.repository).find((item) => email === item.Email);
 
     return Promise.resolve(existingUser || null);
   }

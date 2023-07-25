@@ -21,6 +21,9 @@
       "@blog-user/*": [
         "apps/users/src/app/blog-user/*"
       ],
+      "@authentication/*": [
+        "apps/users/src/app/authentication/*"
+      ],
       "@project/shared/app-types": [
         "libs/shared/app-types/src/index.ts"
       ],

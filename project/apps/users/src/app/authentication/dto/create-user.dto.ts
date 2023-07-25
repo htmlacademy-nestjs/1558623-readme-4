@@ -1,17 +1,18 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { UserPropsExample, UserNameLength, UserPasswordLength } from '@authentication/authentication.constants';
 
 export class CreateUserDto {
   @ApiProperty({
     description: 'User name',
-    minLength: 3,
-    maxLength: 50,
+    minLength: UserNameLength.Min,
+    maxLength: UserNameLength.Max,
     required: true,
   })
   name: string;
 
   @ApiProperty({
     description: 'Valid user email',
-    example: 'faker@fake.co',
+    example: UserPropsExample.Email,
     uniqueItems: true,
     required: true,
   })
@@ -19,15 +20,16 @@ export class CreateUserDto {
 
   @ApiProperty({
     description: 'Password',
-    minLength: 6,
-    maxLength: 12,
+    minLength: UserPasswordLength.Min,
+    maxLength: UserPasswordLength.Max,
+    example: UserPropsExample.Password,
     required: true,
   })
   password: string;
 
   @ApiProperty({
     description: 'User avatar path',
-    example: 'user/avatar.jpg',
+    example: UserPropsExample.AvatarPath,
     required: false,
   })
   avatar?: string;
