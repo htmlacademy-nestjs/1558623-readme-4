@@ -30,6 +30,6 @@ export class BlogUserRepository implements ICRUDRepository<BlogUserEntity, strin
   }
 
   public async delete(id: string): Promise<void> {
-    this.blogUserModel.deleteOne({ id });
+    this.blogUserModel.deleteOne({ _id: id });
   }
 }

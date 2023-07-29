@@ -1,5 +1,10 @@
-import { ConflictException, Inject, Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
-import { BlogUserMemoryRepository } from '@blog-user/blog-user.memory-repository';
+import {
+  ConflictException,
+  Inject,
+  Injectable,
+  NotFoundException,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { AuthMessage } from './authentication.constants';
 import { BlogUserEntity } from '@blog-user/blog-user.entity';
@@ -7,14 +12,14 @@ import { IUser } from '@project/shared/app-types';
 import { LoginUserDto } from './dto/login-user.dto';
 import { ConfigType } from '@nestjs/config';
 import { mongoDbConfig } from '@config-users';
+import { BlogUserRepository } from '@blog-user/blog-user.repository';
 
 @Injectable()
 export class AuthenticationService {
   constructor(
     @Inject(mongoDbConfig.KEY) private readonly dbConfig: ConfigType<typeof mongoDbConfig>,
-    private readonly blogUserRepository: BlogUserMemoryRepository,
-  ) {
-  }
+    private readonly blogUserRepository: BlogUserRepository,
+  ) {}
 
   public async getUserById(id: string): Promise<IUser> {
     const existingUser = await this.blogUserRepository.findById(id);
