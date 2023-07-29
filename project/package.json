@@ -2,7 +2,10 @@
   "name": "@project/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "users:up": "docker compose --file apps/users/docker-compose.dev.yml --project-name \"readme-users\" up -d",
+    "users:down": "docker compose --file apps/users/docker-compose.dev.yml --project-name \"readme-users\" down"
+  },
   "private": true,
   "dependencies": {
     "@nestjs/common": "^10.0.2",
