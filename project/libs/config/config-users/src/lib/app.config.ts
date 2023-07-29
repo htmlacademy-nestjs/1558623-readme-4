@@ -1,10 +1,6 @@
 import { registerAs } from '@nestjs/config';
 import * as Joi from 'joi';
-
-interface IAppConfig {
-  environment: string;
-  port: number;
-}
+import { IAppConfig } from '@project/shared/app-types';
 
 export default registerAs('app', (): IAppConfig => {
   const config: IAppConfig = {

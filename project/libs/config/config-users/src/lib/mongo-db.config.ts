@@ -1,14 +1,6 @@
 import { registerAs } from '@nestjs/config';
 import * as Joi from 'joi';
-
-interface IMongoDbConfig {
-  dbName: string;
-  dbHost: string;
-  dbPort: number;
-  dbUser: string;
-  dbPassword: string;
-  dbAuthBase: string;
-}
+import { IMongoDbConfig } from '@project/shared/app-types';
 
 export default registerAs('usersDb', (): IMongoDbConfig => {
   const config: IMongoDbConfig = {

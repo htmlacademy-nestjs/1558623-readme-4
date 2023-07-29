@@ -7,3 +7,5 @@ export * from './lib/post/post-link.interface';
 export * from './lib/post/post-status.type';
 export * from './lib/post/post-type.type';
 export * from './lib/post/author.interface';
+export * from './lib/mongo/mongo-config.interface';
+export * from './lib/app/app.config.interface';
