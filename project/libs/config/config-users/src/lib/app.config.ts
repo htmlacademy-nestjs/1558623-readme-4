@@ -12,7 +12,7 @@ export default registerAs('app', (): IAppConfig => {
     port: parseInt(process.env.PORT),
   };
 
-  const validationSchema = Joi.object<IAppConfig>({
+  const validationSchema = Joi.object<IAppConfig, true, IAppConfig>({
     environment: Joi.string().valid('development', 'production', 'staging').required(),
     port: Joi.number().port(),
   });
