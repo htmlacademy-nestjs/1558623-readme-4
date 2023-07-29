@@ -24,7 +24,7 @@
       "@blog-user/*": [
         "apps/users/src/app/blog-user/*"
       ],
-      "@project/config/config-users": [
+      "@config-users": [
         "libs/config/config-users/src/index.ts"
       ],
       "@project/shared/app-types": [

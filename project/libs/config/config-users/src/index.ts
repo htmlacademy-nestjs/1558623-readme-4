@@ -1,1 +1,1 @@
-export * from './lib/config-config-users';
+export * from './lib/config-users.module';
