@@ -18,11 +18,14 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@authentication/*": [
+        "apps/users/src/app/authentication/*"
+      ],
       "@blog-user/*": [
         "apps/users/src/app/blog-user/*"
       ],
-      "@authentication/*": [
-        "apps/users/src/app/authentication/*"
+      "@project/config/config-users": [
+        "libs/config/config-users/src/index.ts"
       ],
       "@project/shared/app-types": [
         "libs/shared/app-types/src/index.ts"
