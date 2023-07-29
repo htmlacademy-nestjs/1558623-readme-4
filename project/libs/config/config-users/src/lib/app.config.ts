@@ -1,7 +1,7 @@
 import { registerAs } from '@nestjs/config';
 import * as Joi from 'joi';
 
-export interface IAppConfig {
+interface IAppConfig {
   environment: string;
   port: number;
 }
