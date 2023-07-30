@@ -9,7 +9,7 @@ export default registerAs('app', (): IAppConfig => {
   };
 
   const validationSchema = Joi.object<IAppConfig, true, IAppConfig>({
-    environment: Joi.string().valid('development', 'production', 'staging').required(),
+    environment: Joi.string().valid('development', 'production').required(),
     port: Joi.number().port(),
   });
 
