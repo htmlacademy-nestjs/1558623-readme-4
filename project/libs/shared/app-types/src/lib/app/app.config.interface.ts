@@ -1,4 +1,4 @@
 export interface IAppConfig {
-  environment: string;
-  port: number;
+  environment: string | undefined;
+  port: number | undefined;
 }

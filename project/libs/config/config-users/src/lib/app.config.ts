@@ -5,7 +5,7 @@ import { IAppConfig } from '@project/shared/app-types';
 export default registerAs('app', (): IAppConfig => {
   const config: IAppConfig = {
     environment: process.env.NODE_ENV,
-    port: parseInt(process.env.PORT),
+    port: Number(process.env.PORT),
   };
 
   const validationSchema = Joi.object<IAppConfig, true, IAppConfig>({

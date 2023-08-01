@@ -8,13 +8,13 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 })
 export class BlogUserModel extends Document implements IUser {
   @Prop({ required: true, unique: true })
-  email: string;
+  email!: string;
 
   @Prop({ required: true })
-  name: string;
+  name!: string;
 
   @Prop({ required: true })
-  passwordHash: string;
+  passwordHash!: string;
 
   @Prop()
   avatar?: string;

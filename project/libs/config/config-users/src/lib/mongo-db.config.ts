@@ -6,7 +6,7 @@ export default registerAs('usersDb', (): IMongoDbConfig => {
   const config: IMongoDbConfig = {
     dbName: process.env.MONGO_NAME,
     dbHost: process.env.MONGO_HOST,
-    dbPort: parseInt(process.env.MONGO_PORT),
+    dbPort: Number(process.env.MONGO_PORT),
     dbUser: process.env.MONGO_USER,
     dbPassword: process.env.MONGO_PASSWORD,
     dbAuthBase: process.env.MONGO_AUTH_BASE,

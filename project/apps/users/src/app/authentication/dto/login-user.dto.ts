@@ -8,7 +8,7 @@ export class LoginUserDto {
     uniqueItems: true,
     required: true,
   })
-  email: string;
+  email!: string;
 
   @ApiProperty({
     description: 'Password',
@@ -17,5 +17,5 @@ export class LoginUserDto {
     example: UserPropsExample.Password,
     required: true,
   })
-  password: string;
+  password!: string;
 }

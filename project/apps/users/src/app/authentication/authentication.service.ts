@@ -1,6 +1,5 @@
 import {
   ConflictException,
-  Inject,
   Injectable,
   NotFoundException,
   UnauthorizedException,
@@ -10,16 +9,11 @@ import { AuthMessage } from './authentication.constants';
 import { BlogUserEntity } from '@blog-user/blog-user.entity';
 import { IUser } from '@project/shared/app-types';
 import { LoginUserDto } from './dto/login-user.dto';
-import { ConfigType } from '@nestjs/config';
-import { mongoDbConfig } from '@config-users';
 import { BlogUserRepository } from '@blog-user/blog-user.repository';
 
 @Injectable()
 export class AuthenticationService {
-  constructor(
-    @Inject(mongoDbConfig.KEY) private readonly dbConfig: ConfigType<typeof mongoDbConfig>,
-    private readonly blogUserRepository: BlogUserRepository,
-  ) {}
+  constructor(private readonly blogUserRepository: BlogUserRepository) {}
 
   public async getUserById(id: string): Promise<IUser> {
     const existingUser = await this.blogUserRepository.findById(id);
@@ -57,6 +51,7 @@ export class AuthenticationService {
       throw new ConflictException(AuthMessage.UserExists(email));
     }
 
+    //TODO: проверить и убрать деструктуризацию DTO
     const newUser: IUser = {
       ...dto,
       passwordHash: '',

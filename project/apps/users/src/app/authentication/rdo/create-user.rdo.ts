@@ -7,14 +7,14 @@ export class CreateUserRdo {
     example: '7a1d9f35-9c08-4587-befa-3e8bbefd772e',
   })
   @Expose({ name: '_id' })
-  id: string;
+  id!: string;
 
   @ApiProperty({
     description: 'Valid user email',
     example: 'faker@fake.co',
   })
   @Expose()
-  email: string;
+  email!: string;
 
   @ApiProperty({
     description: 'User name',
@@ -22,7 +22,7 @@ export class CreateUserRdo {
     maxLength: 50,
   })
   @Expose()
-  name: string;
+  name!: string;
 
   @ApiProperty({
     description: 'User avatar path',
@@ -35,5 +35,5 @@ export class CreateUserRdo {
     description: 'JWT access token',
   })
   @Expose()
-  accessToken: string;
+  accessToken!: string;
 }

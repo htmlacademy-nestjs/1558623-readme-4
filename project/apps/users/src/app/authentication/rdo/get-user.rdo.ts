@@ -8,13 +8,13 @@ export class GetUserRdo {
   })
   @Expose({ name: '_id' })
   @Transform(({ obj }) => obj._id.toString())
-  id: string;
+  id!: string;
 
   @ApiProperty({
     description: 'Date of account creation',
   })
   @Expose()
-  createdAt: string;
+  createdAt!: string;
 
   @ApiProperty({
     description: 'User name',
@@ -22,19 +22,19 @@ export class GetUserRdo {
     maxLength: 50,
   })
   @Expose()
-  name: string;
+  name!: string;
 
   @ApiProperty({
     description: 'Valid user email',
     example: 'faker@fake.co',
   })
   @Expose()
-  email: string;
+  email!: string;
 
   @ApiProperty({
     description: 'User avatar path',
     example: 'user/avatar.jpg',
   })
   @Expose()
-  avatar: string;
+  avatar!: string;
 }

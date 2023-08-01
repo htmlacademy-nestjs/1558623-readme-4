@@ -8,25 +8,25 @@ export class LoginUserRdo {
   })
   @Expose({ name: '_id' })
   @Transform(({ obj }) => obj._id.toString())
-  id: string;
+  id!: string;
 
   @ApiProperty({
     description: 'Valid user email',
     example: 'faker@fake.co',
   })
   @Expose()
-  email: string;
+  email!: string;
 
   @ApiProperty({
     description: 'User avatar path',
     example: 'user/avatar.jpg',
   })
   @Expose()
-  avatar: string;
+  avatar!: string;
 
   @ApiProperty({
     description: 'JWT access token',
   })
   @Expose()
-  accessToken: string;
+  accessToken!: string;
 }

@@ -3,7 +3,7 @@ export interface ICRUDRepository<E, I, R> {
 
   create(item: E): Promise<R>;
 
-  update(id: I, item: E): Promise<R>;
+  update(id: I, item: E): Promise<R | null>;
 
   delete(id: I): Promise<void>;
 }

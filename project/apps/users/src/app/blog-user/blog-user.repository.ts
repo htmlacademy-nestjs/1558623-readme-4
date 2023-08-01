@@ -25,7 +25,7 @@ export class BlogUserRepository implements ICRUDRepository<BlogUserEntity, strin
     return newUser.save();
   }
 
-  public async update(id: string, user: BlogUserEntity): Promise<IUser> {
+  public async update(id: string, user: BlogUserEntity): Promise<IUser | null> {
     return this.blogUserModel.findByIdAndUpdate(id, user.toObject(), { new: true }).exec();
   }
 

@@ -1,6 +1,8 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "strict": true,
+    "noImplicitAny": true,
     "rootDir": ".",
     "sourceMap": true,
     "declaration": false,
@@ -11,8 +13,7 @@
     "target": "ES2022",
     "module": "esnext",
     "lib": [
-      "es2020",
-      "dom"
+      "es2020"
     ],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
