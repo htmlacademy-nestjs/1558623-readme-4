@@ -1,15 +1,19 @@
-import { ConflictException, Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
-import { BlogUserMemoryRepository } from '@blog-user/blog-user.memory-repository';
+import {
+  ConflictException,
+  Injectable,
+  NotFoundException,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { AuthMessage } from './authentication.constants';
 import { BlogUserEntity } from '@blog-user/blog-user.entity';
 import { IUser } from '@project/shared/app-types';
 import { LoginUserDto } from './dto/login-user.dto';
+import { BlogUserRepository } from '@blog-user/blog-user.repository';
 
 @Injectable()
 export class AuthenticationService {
-  constructor(private readonly blogUserRepository: BlogUserMemoryRepository) {
-  }
+  constructor(private readonly blogUserRepository: BlogUserRepository) {}
 
   public async getUserById(id: string): Promise<IUser> {
     const existingUser = await this.blogUserRepository.findById(id);
@@ -40,7 +44,7 @@ export class AuthenticationService {
   }
 
   public async register(dto: CreateUserDto) {
-    const { email, password } = dto;
+    const { email, password, name, avatar } = dto;
     const existingUser = await this.blogUserRepository.findByEmail(email);
 
     if (existingUser) {
@@ -48,8 +52,10 @@ export class AuthenticationService {
     }
 
     const newUser: IUser = {
-      ...dto,
-      passwordHash: ''
+      email,
+      name,
+      avatar,
+      passwordHash: '',
     };
 
     const userEntity = await new BlogUserEntity(newUser).setHashFromPassword(password);

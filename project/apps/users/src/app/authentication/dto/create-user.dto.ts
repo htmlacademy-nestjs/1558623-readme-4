@@ -1,5 +1,9 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { UserPropsExample, UserNameLength, UserPasswordLength } from '@authentication/authentication.constants';
+import {
+  UserPropsExample,
+  UserNameLength,
+  UserPasswordLength,
+} from '@authentication/authentication.constants';
 
 export class CreateUserDto {
   @ApiProperty({
@@ -8,7 +12,7 @@ export class CreateUserDto {
     maxLength: UserNameLength.Max,
     required: true,
   })
-  name: string;
+  name!: string;
 
   @ApiProperty({
     description: 'Valid user email',
@@ -16,7 +20,7 @@ export class CreateUserDto {
     uniqueItems: true,
     required: true,
   })
-  email: string;
+  email!: string;
 
   @ApiProperty({
     description: 'Password',
@@ -25,7 +29,7 @@ export class CreateUserDto {
     example: UserPropsExample.Password,
     required: true,
   })
-  password: string;
+  password!: string;
 
   @ApiProperty({
     description: 'User avatar path',

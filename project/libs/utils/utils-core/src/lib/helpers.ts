@@ -1,5 +1,17 @@
 import { ClassConstructor, plainToInstance } from 'class-transformer';
+import { IMongoDbConfig } from '@project/shared/app-types';
 
-export function fillObject<T, V>(dto: ClassConstructor<T>, plainObject: V) {
+export const fillObject = <T, V>(dto: ClassConstructor<T>, plainObject: V) => {
   return plainToInstance(dto, plainObject, { excludeExtraneousValues: true });
-}
+};
+
+export const getMongoConnectionString = ({
+  dbName,
+  dbHost,
+  dbPort,
+  dbUser,
+  dbPassword,
+  dbAuthBase,
+}: IMongoDbConfig): string => {
+  return `mongodb://${dbUser}:${dbPassword}@${dbHost}:${dbPort}/${dbName}?authSource=${dbAuthBase}`;
+};

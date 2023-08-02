@@ -1,4 +1,4 @@
-import { Expose } from 'class-transformer';
+import { Expose, Transform } from 'class-transformer';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class GetUserRdo {
@@ -7,13 +7,14 @@ export class GetUserRdo {
     example: '7a1d9f35-9c08-4587-befa-3e8bbefd772e',
   })
   @Expose({ name: '_id' })
-  id: string;
+  @Transform(({ obj }) => obj._id.toString())
+  id!: string;
 
   @ApiProperty({
     description: 'Date of account creation',
   })
   @Expose()
-  createdAt: string;
+  createdAt!: string;
 
   @ApiProperty({
     description: 'User name',
@@ -21,19 +22,19 @@ export class GetUserRdo {
     maxLength: 50,
   })
   @Expose()
-  name: string;
+  name!: string;
 
   @ApiProperty({
     description: 'Valid user email',
     example: 'faker@fake.co',
   })
   @Expose()
-  email: string;
+  email!: string;
 
   @ApiProperty({
     description: 'User avatar path',
     example: 'user/avatar.jpg',
   })
   @Expose()
-  avatar: string;
+  avatar!: string;
 }
