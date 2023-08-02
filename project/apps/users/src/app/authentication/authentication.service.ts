@@ -44,16 +44,17 @@ export class AuthenticationService {
   }
 
   public async register(dto: CreateUserDto) {
-    const { email, password } = dto;
+    const { email, password, name, avatar } = dto;
     const existingUser = await this.blogUserRepository.findByEmail(email);
 
     if (existingUser) {
       throw new ConflictException(AuthMessage.UserExists(email));
     }
 
-    //TODO: проверить и убрать деструктуризацию DTO
     const newUser: IUser = {
-      ...dto,
+      email,
+      name,
+      avatar,
       passwordHash: '',
     };
 

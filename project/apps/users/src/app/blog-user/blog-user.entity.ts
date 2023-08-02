@@ -3,7 +3,6 @@ import { compare, genSalt, hash } from 'bcrypt';
 import { SALT_ROUNDS } from './blog-user.constants';
 
 export class BlogUserEntity implements IUser {
-  public _id?: string;
   public name!: string;
   public email!: string;
   public passwordHash!: string;
@@ -15,7 +14,6 @@ export class BlogUserEntity implements IUser {
 
   public toObject(): IUser {
     return {
-      _id: this._id,
       name: this.name,
       email: this.email,
       passwordHash: this.passwordHash,
@@ -23,8 +21,7 @@ export class BlogUserEntity implements IUser {
     };
   }
 
-  public fillEntity({ _id, name, email, passwordHash, avatar }: IUser) {
-    this._id = _id;
+  public fillEntity({ name, email, passwordHash, avatar }: IUser) {
     this.name = name;
     this.email = email;
     this.passwordHash = passwordHash;
