@@ -28,6 +28,9 @@
       "@config-users": [
         "libs/config/config-users/src/index.ts"
       ],
+      "@project/models/blog-models": [
+        "libs/models/blog-models/src/index.ts"
+      ],
       "@project/shared/app-types": [
         "libs/shared/app-types/src/index.ts"
       ],
