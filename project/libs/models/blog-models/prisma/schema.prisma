@@ -9,3 +9,51 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+enum PostType {
+  LINK
+  PHOTO
+  QUOTE
+  TEXT
+  VIDEO
+}
+
+model User {
+  id       Int       @id @default(autoincrement())
+  posts    Post[]
+  comments Comment[]
+
+  @@map("users")
+}
+
+model Comment {
+  id              Int      @id @default(autoincrement())
+  commentText     String   @map("comment_text")
+  commentAuthor   User     @relation(fields: [commentAuthorId], references: [id])
+  commentAuthorId Int      @unique @map("comment_author_id")
+  dateCreated     DateTime @default(now()) @map("date_created")
+  post            Post?    @relation(fields: [postId], references: [id])
+  postId          Int?     @unique @map("post_id")
+
+  @@map("comments")
+}
+
+model Post {
+  id           Int       @id @default(autoincrement())
+  type         PostType
+  postAuthor   User      @relation(fields: [postAuthorId], references: [id])
+  postAuthorId Int       @unique @map("post_author_id")
+  dateCreated  DateTime  @default(now()) @map("date_created")
+  dateUpdated  DateTime  @default(now()) @map("date_updated")
+  likesCount   Int       @default(0) @map("likes_count")
+  tagsList     String[]  @map("tags_list")
+  title        String?
+  description  String?
+  url          String?
+  textContent  String?   @map("text_content")
+  quoteAuthor  String?   @map("quote_author")
+  preview      String?
+  comments     Comment[]
+
+  @@map("posts")
+}
