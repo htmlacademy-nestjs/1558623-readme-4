@@ -1,5 +1,5 @@
 export class UpdatePostPhotoDto {
-  postId: string;
+  postId!: string;
   url?: string;
   tagsList?: string[];
 }

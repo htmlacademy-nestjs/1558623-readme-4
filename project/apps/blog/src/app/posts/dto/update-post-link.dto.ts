@@ -1,5 +1,5 @@
 export class UpdatePostLinkDto {
-  postId: string;
+  postId!: string;
   url?: string;
   description?: string;
   tagsList?: string[];

@@ -1,5 +1,5 @@
 export class UpdatePostVideoDto {
-  postId: string;
+  postId!: string;
   title?: string;
   url?: string;
   tagsList?: string[];

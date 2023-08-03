@@ -1,5 +1,5 @@
 export class UpdatePostTextDto {
-  postId: string;
+  postId!: string;
   title?: string;
   preview?: string;
   textContent?: string;

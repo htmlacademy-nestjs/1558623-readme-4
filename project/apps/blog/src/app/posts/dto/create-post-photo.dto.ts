@@ -1,4 +1,4 @@
 export class CreatePostPhotoDto {
-  url: string;
+  url!: string;
   tagsList?: string[];
 }

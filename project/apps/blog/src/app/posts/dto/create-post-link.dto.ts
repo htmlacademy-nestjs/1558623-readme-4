@@ -1,5 +1,5 @@
 export class CreatePostLinkDto {
-  url: string;
+  url!: string;
   description?: string;
   tagsList?: string[];
 }
