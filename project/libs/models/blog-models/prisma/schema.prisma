@@ -3,6 +3,7 @@
 
 generator client {
   provider = "prisma-client-js"
+  output   = "../../../../node_modules/.prisma/client"
 }
 
 datasource db {
@@ -32,8 +33,8 @@ model Comment {
   commentAuthor   User     @relation(fields: [commentAuthorId], references: [id])
   commentAuthorId Int      @unique @map("comment_author_id")
   dateCreated     DateTime @default(now()) @map("date_created")
-  post            Post?    @relation(fields: [postId], references: [id])
-  postId          Int?     @unique @map("post_id")
+  post            Post     @relation(fields: [postId], references: [id])
+  postId          Int      @unique @map("post_id")
 
   @@map("comments")
 }
