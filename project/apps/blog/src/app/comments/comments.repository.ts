@@ -1,12 +1,14 @@
-import { PrismaService } from '../prisma/prisma.service';
+import { PrismaService } from '@apps/blog-prisma/prisma.service';
 import { CommentEntity } from './comment.entity';
 import { ICRUDRepository } from '@libs/utils-types';
-import { IComment } from '@libs/shared-app-types';
+import { Injectable } from '@nestjs/common';
+import { Comment } from '@prisma/client';
 
-export class CommentsRepository implements ICRUDRepository<CommentEntity, number, IComment> {
+@Injectable()
+export class CommentsRepository implements ICRUDRepository<CommentEntity, number, Comment> {
   constructor(private readonly prismaService: PrismaService) {}
 
-  public async create(comment: CommentEntity): Promise<IComment> {
+  public async create(comment: CommentEntity): Promise<Comment> {
     return this.prismaService.comment.create({
       data: {
         ...comment.toObject(),
@@ -20,7 +22,7 @@ export class CommentsRepository implements ICRUDRepository<CommentEntity, number
     });
   }
 
-  public async findManyByAuthorId(postId: number): Promise<IComment[] | null> {
+  public async findManyByPostId(postId: number): Promise<Comment[]> {
     return this.prismaService.comment.findMany({
       where: { postId: postId },
     });

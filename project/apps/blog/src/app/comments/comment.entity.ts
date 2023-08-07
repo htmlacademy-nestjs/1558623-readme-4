@@ -1,8 +1,8 @@
 import { CreateCommentDto } from './dto/create-comment.dto';
 import { IEntity } from '@libs/utils-types';
-import { IComment } from '@libs/shared-app-types';
+import { ICommentCreate } from '@libs/shared-app-types';
 
-export class CommentEntity implements IEntity<CommentEntity, CreateCommentDto>, IComment {
+export class CommentEntity implements IEntity<CommentEntity, CreateCommentDto>, ICommentCreate {
   public id?: number;
   public commentText: string;
   public authorId: string;

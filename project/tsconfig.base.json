@@ -25,6 +25,9 @@
       "@apps/users-blog-user/*": [
         "apps/users/src/app/blog-user/*"
       ],
+      "@apps/blog-prisma/*": [
+        "apps/blog/src/app/prisma/*"
+      ],
       "@libs/config-users": [
         "libs/config/users/src/index.ts"
       ],
