@@ -1,6 +1,6 @@
 import { registerAs } from '@nestjs/config';
 import * as Joi from 'joi';
-import { IAppConfig } from '@project/shared/app-types';
+import { IAppConfig } from '@libs/shared-app-types';
 
 export default registerAs('app', (): IAppConfig => {
   const config: IAppConfig = {

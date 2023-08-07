@@ -6,10 +6,10 @@ import {
 } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { AuthMessage } from './authentication.constants';
-import { BlogUserEntity } from '@blog-user/blog-user.entity';
-import { IAppUser } from '@project/shared/app-types';
 import { LoginUserDto } from './dto/login-user.dto';
-import { BlogUserRepository } from '@blog-user/blog-user.repository';
+import { IAppUser } from '@libs/shared-app-types';
+import { BlogUserRepository } from '@apps/users-blog-user/blog-user.repository';
+import { BlogUserEntity } from '@apps/users-blog-user/blog-user.entity';
 
 @Injectable()
 export class AuthenticationService {

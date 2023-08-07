@@ -1,6 +1,6 @@
-import { IAppUser } from '@project/shared/app-types';
 import { compare, genSalt, hash } from 'bcrypt';
 import { SALT_ROUNDS } from './blog-user.constants';
+import { IAppUser } from '@libs/shared-app-types';
 
 export class BlogUserEntity implements IAppUser {
   public name!: string;

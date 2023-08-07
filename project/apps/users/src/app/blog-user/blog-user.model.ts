@@ -1,6 +1,6 @@
-import { IAppUser } from '@project/shared/app-types';
 import { Document } from 'mongoose';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { IAppUser } from '@libs/shared-app-types';
 
 @Schema({
   collection: 'users',

@@ -19,26 +19,29 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@authentication/*": [
+      "@apps/users-authentication/*": [
         "apps/users/src/app/authentication/*"
       ],
-      "@blog-user/*": [
+      "@apps/users-blog-user/*": [
         "apps/users/src/app/blog-user/*"
       ],
-      "@config-users": [
-        "libs/config/config-users/src/index.ts"
+      "@libs/config-users": [
+        "libs/config/users/src/index.ts"
       ],
-      "@project/models/blog-models": [
-        "libs/models/blog-models/src/index.ts"
+      "@libs/models-blog": [
+        "libs/models/blog/src/index.ts"
       ],
-      "@project/shared/app-types": [
+      "@libs/shared-app-config": [
+        "libs/shared/app-config/src/index.ts"
+      ],
+      "@libs/shared-app-types": [
         "libs/shared/app-types/src/index.ts"
       ],
-      "@project/utils/utils-core": [
-        "libs/utils/utils-core/src/index.ts"
+      "@libs/utils-core": [
+        "libs/utils/core/src/index.ts"
       ],
-      "@project/utils/utils-types": [
-        "libs/utils/utils-types/src/index.ts"
+      "@libs/utils-types": [
+        "libs/utils/types/src/index.ts"
       ]
     }
   },

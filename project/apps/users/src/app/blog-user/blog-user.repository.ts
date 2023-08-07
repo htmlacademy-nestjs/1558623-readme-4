@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { BlogUserModel } from '@blog-user/blog-user.model';
-import { ICRUDRepository } from '@project/utils/utils-types';
-import { BlogUserEntity } from '@blog-user/blog-user.entity';
-import { IAppUser } from '@project/shared/app-types';
 import { Model } from 'mongoose';
+import { BlogUserModel } from '@apps/users-blog-user/blog-user.model';
+import { IAppUser } from '@libs/shared-app-types';
+import { ICRUDRepository } from '@libs/utils-types';
+import { BlogUserEntity } from '@apps/users-blog-user/blog-user.entity';
 
 @Injectable()
 export class BlogUserRepository implements ICRUDRepository<BlogUserEntity, string, IAppUser> {

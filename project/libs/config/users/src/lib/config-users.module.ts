@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import appConfig from './app.config';
 import mongoDbConfig from './mongo-db.config';
+import appConfig from '@libs/shared-app-config';
 
 const USERS_ENV_FILE_PATH = 'apps/users/.users.env';
 
@@ -15,5 +15,4 @@ const USERS_ENV_FILE_PATH = 'apps/users/.users.env';
     }),
   ],
 })
-export class ConfigUsersModule {
-}
+export class ConfigUsersModule {}

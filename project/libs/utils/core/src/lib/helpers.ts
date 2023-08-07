@@ -1,5 +1,5 @@
 import { ClassConstructor, plainToInstance } from 'class-transformer';
-import { IMongoDbConfig } from '@project/shared/app-types';
+import { IMongoDbConfig } from '@libs/shared-app-types';
 
 export const fillObject = <T, V>(dto: ClassConstructor<T>, plainObject: V) => {
   return plainToInstance(dto, plainObject, { excludeExtraneousValues: true });
