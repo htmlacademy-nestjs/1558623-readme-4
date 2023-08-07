@@ -42,6 +42,9 @@
       ],
       "@libs/utils-types": [
         "libs/utils/types/src/index.ts"
+      ],
+      "@project/config/blog": [
+        "libs/config/blog/src/index.ts"
       ]
     }
   },

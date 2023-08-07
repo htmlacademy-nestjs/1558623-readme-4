@@ -1,7 +1,7 @@
-import { ICRUDRepository } from '@project/utils/utils-types';
 import { PrismaService } from '../prisma/prisma.service';
 import { CommentEntity } from './comment.entity';
-import { IComment } from '@project/shared/app-types';
+import { ICRUDRepository } from '@libs/utils-types';
+import { IComment } from '@libs/shared-app-types';
 
 export class CommentsRepository implements ICRUDRepository<CommentEntity, number, IComment> {
   constructor(private readonly prismaService: PrismaService) {}

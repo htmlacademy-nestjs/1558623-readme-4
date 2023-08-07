@@ -2,7 +2,7 @@ import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, Post } from
 import { CommentsService } from './comments.service';
 import { CreateCommentDto } from './dto/create-comment.dto';
 import { CommentRdo } from './rdo/comment.rdo';
-import { fillObject } from '@project/utils/utils-core';
+import { fillObject } from '@libs/utils-core';
 
 @Controller('comments')
 export class CommentsController {

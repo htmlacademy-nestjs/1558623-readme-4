@@ -1,6 +1,6 @@
-import { TPostStatus } from '@project/shared/app-types';
+// TODO: create a enum for PostStatus
 
 export class SetPostStatusDto {
   postId!: string;
-  postStatus!: TPostStatus;
+  postStatus!: 'dummy';
 }

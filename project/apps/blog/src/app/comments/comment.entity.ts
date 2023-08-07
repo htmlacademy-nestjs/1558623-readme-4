@@ -1,6 +1,6 @@
-import { IEntity } from '@project/utils/utils-types';
-import { IComment } from '@project/shared/app-types';
 import { CreateCommentDto } from './dto/create-comment.dto';
+import { IEntity } from '@libs/utils-types';
+import { IComment } from '@libs/shared-app-types';
 
 export class CommentEntity implements IEntity<CommentEntity, CreateCommentDto>, IComment {
   public id?: number;

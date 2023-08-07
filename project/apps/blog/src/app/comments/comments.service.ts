@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { CommentsRepository } from './comments.repository';
 import { CreateCommentDto } from './dto/create-comment.dto';
-import { IComment } from '@project/shared/app-types';
 import { CommentEntity } from './comment.entity';
+import { IComment } from '@libs/shared-app-types';
 
 @Injectable()
 export class CommentsService {
