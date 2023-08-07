@@ -3,7 +3,6 @@ import { IEntity } from '@libs/utils-types';
 import { ICommentCreate } from '@libs/shared-app-types';
 
 export class CommentEntity implements IEntity<CommentEntity, CreateCommentDto>, ICommentCreate {
-  public id?: number;
   public commentText: string;
   public authorId: string;
   public postId: number;

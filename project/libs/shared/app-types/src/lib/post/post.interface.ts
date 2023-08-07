@@ -1,17 +1,13 @@
 import { PostType } from '@prisma/client';
 
 export interface IPost {
-  id: number;
   type: PostType;
-  postAuthorId: string;
-  dateCreated: string;
-  dateUpdated: string;
-  likesCount: number;
+  postAuthorId?: string;
   tagsList: string[];
-  title?: string;
-  description?: string;
-  url?: string;
-  textContent?: string;
-  quoteAuthor?: string;
-  preview?: string;
+  title: string | null;
+  description: string | null;
+  url: string | null;
+  textContent: string | null;
+  quoteAuthor: string | null;
+  preview: string | null;
 }
