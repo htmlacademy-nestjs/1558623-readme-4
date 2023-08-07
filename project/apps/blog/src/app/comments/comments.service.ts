@@ -16,11 +16,7 @@ export class CommentsService {
     return this.commentsRepository.delete(id);
   }
 
-  public async findById(id: number): Promise<IComment | null> {
-    return this.commentsRepository.findById(id);
-  }
-
-  public async findByPostId(postId: number): Promise<IComment[] | null> {
-    return this.commentsRepository.findByAuthorId(postId);
+  public async findManyByPostId(postId: number): Promise<IComment[] | null> {
+    return this.commentsRepository.findManyByAuthorId(postId);
   }
 }

@@ -1,5 +1,5 @@
 export interface ICRUDRepository<E, I, R> {
-  findById(id: I): Promise<R | null>;
+  findById?(id: I): Promise<R | null>;
 
   create(item: E): Promise<R>;
 
