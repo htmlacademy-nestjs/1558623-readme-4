@@ -1,4 +1,4 @@
-import { IUser } from '@project/shared/app-types';
+import { IAppUser } from '@project/shared/app-types';
 import { Document } from 'mongoose';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 
@@ -6,7 +6,7 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
   collection: 'users',
   timestamps: true,
 })
-export class BlogUserModel extends Document implements IUser {
+export class BlogUserModel extends Document implements IAppUser {
   @Prop({ required: true, unique: true })
   email!: string;
 

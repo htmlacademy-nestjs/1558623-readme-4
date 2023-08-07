@@ -1,18 +1,18 @@
-import { IUser } from '@project/shared/app-types';
+import { IAppUser } from '@project/shared/app-types';
 import { compare, genSalt, hash } from 'bcrypt';
 import { SALT_ROUNDS } from './blog-user.constants';
 
-export class BlogUserEntity implements IUser {
+export class BlogUserEntity implements IAppUser {
   public name!: string;
   public email!: string;
   public passwordHash!: string;
   public avatar!: string;
 
-  constructor(user: IUser) {
+  constructor(user: IAppUser) {
     this.fillEntity(user);
   }
 
-  public toObject(): IUser {
+  public toObject(): IAppUser {
     return {
       name: this.name,
       email: this.email,
@@ -21,7 +21,7 @@ export class BlogUserEntity implements IUser {
     };
   }
 
-  public fillEntity({ name, email, passwordHash, avatar }: IUser) {
+  public fillEntity({ name, email, passwordHash, avatar }: IAppUser) {
     this.name = name;
     this.email = email;
     this.passwordHash = passwordHash;

@@ -7,7 +7,7 @@ import {
 import { CreateUserDto } from './dto/create-user.dto';
 import { AuthMessage } from './authentication.constants';
 import { BlogUserEntity } from '@blog-user/blog-user.entity';
-import { IUser } from '@project/shared/app-types';
+import { IAppUser } from '@project/shared/app-types';
 import { LoginUserDto } from './dto/login-user.dto';
 import { BlogUserRepository } from '@blog-user/blog-user.repository';
 
@@ -15,7 +15,7 @@ import { BlogUserRepository } from '@blog-user/blog-user.repository';
 export class AuthenticationService {
   constructor(private readonly blogUserRepository: BlogUserRepository) {}
 
-  public async getUserById(id: string): Promise<IUser> {
+  public async getUserById(id: string): Promise<IAppUser> {
     const existingUser = await this.blogUserRepository.findById(id);
     if (!existingUser) {
       throw new NotFoundException(AuthMessage.UserNotFoundById(id));
@@ -24,7 +24,7 @@ export class AuthenticationService {
     return existingUser;
   }
 
-  public async verifyUser(dto: LoginUserDto): Promise<IUser> {
+  public async verifyUser(dto: LoginUserDto): Promise<IAppUser> {
     const { email, password } = dto;
 
     const existingUser = await this.blogUserRepository.findByEmail(email);
@@ -51,7 +51,7 @@ export class AuthenticationService {
       throw new ConflictException(AuthMessage.UserExists(email));
     }
 
-    const newUser: IUser = {
+    const newUser: IAppUser = {
       email,
       name,
       avatar,
