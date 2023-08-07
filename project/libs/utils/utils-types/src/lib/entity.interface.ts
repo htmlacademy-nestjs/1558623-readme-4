@@ -1,4 +1,5 @@
-export interface IEntity<E, I> {
+export interface IEntity<E, D> {
   toObject(): E;
-  fillEntity(entity: I): void;
+
+  fillEntity(dto: D): void;
 }

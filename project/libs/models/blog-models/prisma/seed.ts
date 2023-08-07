@@ -35,12 +35,12 @@ export const fillDb = async () => {
                 {
                   id: 1,
                   commentText: 'Nice post',
-                  commentAuthorId: 'aaa1',
+                  authorId: 'aaa1',
                 },
                 {
                   id: 2,
                   commentText: 'No, its a bad post',
-                  commentAuthorId: 'aaa2',
+                  authorId: 'aaa2',
                 },
               ],
             },

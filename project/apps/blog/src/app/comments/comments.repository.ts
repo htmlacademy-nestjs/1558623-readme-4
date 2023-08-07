@@ -25,4 +25,10 @@ export class CommentsRepository implements ICRUDRepository<CommentEntity, number
       where: { id },
     });
   }
+
+  public async findByAuthorId(postId: number): Promise<IComment[] | null> {
+    return this.prismaService.comment.findMany({
+      where: { postId: postId },
+    });
+  }
 }

@@ -12,7 +12,7 @@ CREATE TABLE "users" (
 CREATE TABLE "comments" (
     "id" SERIAL NOT NULL,
     "comment_text" TEXT NOT NULL,
-    "comment_author_id" TEXT NOT NULL,
+    "author_id" TEXT NOT NULL,
     "date_created" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "post_id" INTEGER NOT NULL,
 
@@ -45,7 +45,7 @@ CREATE UNIQUE INDEX "users_id_key" ON "users"("id");
 CREATE UNIQUE INDEX "comments_id_key" ON "comments"("id");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "comments_comment_author_id_key" ON "comments"("comment_author_id");
+CREATE UNIQUE INDEX "comments_author_id_key" ON "comments"("author_id");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "posts_id_key" ON "posts"("id");
@@ -54,7 +54,7 @@ CREATE UNIQUE INDEX "posts_id_key" ON "posts"("id");
 CREATE UNIQUE INDEX "posts_post_author_id_key" ON "posts"("post_author_id");
 
 -- AddForeignKey
-ALTER TABLE "comments" ADD CONSTRAINT "comments_comment_author_id_fkey" FOREIGN KEY ("comment_author_id") REFERENCES "users"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "comments" ADD CONSTRAINT "comments_author_id_fkey" FOREIGN KEY ("author_id") REFERENCES "users"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "comments" ADD CONSTRAINT "comments_post_id_fkey" FOREIGN KEY ("post_id") REFERENCES "posts"("id") ON DELETE CASCADE ON UPDATE CASCADE;

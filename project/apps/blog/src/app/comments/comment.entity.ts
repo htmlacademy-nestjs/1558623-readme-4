@@ -1,24 +1,23 @@
 import { IEntity } from '@project/utils/utils-types';
 import { IComment } from '@project/shared/app-types';
+import { CreateCommentDto } from './dto/create-comment.dto';
 
-export class CommentEntity implements IEntity<CommentEntity, IComment>, IComment {
-  public id: number;
+export class CommentEntity implements IEntity<CommentEntity, CreateCommentDto>, IComment {
+  public id?: number;
   public commentText: string;
-  public commentAuthorId: string;
+  public authorId: string;
   public postId: number;
 
-  constructor(comment: IComment) {
-    this.id = comment.id;
-    this.commentText = comment.commentText;
-    this.commentAuthorId = comment.commentAuthorId;
-    this.postId = comment.postId;
+  constructor(commentDto: CreateCommentDto) {
+    this.commentText = commentDto.commentText;
+    this.authorId = commentDto.authorId;
+    this.postId = commentDto.postId;
   }
 
-  public fillEntity(entity: IComment) {
-    this.id = entity.id;
-    this.commentText = entity.commentText;
-    this.commentAuthorId = entity.commentAuthorId;
-    this.postId = entity.postId;
+  public fillEntity(dto: CreateCommentDto) {
+    this.commentText = dto.commentText;
+    this.authorId = dto.authorId;
+    this.postId = dto.postId;
   }
 
   public toObject(): CommentEntity {
