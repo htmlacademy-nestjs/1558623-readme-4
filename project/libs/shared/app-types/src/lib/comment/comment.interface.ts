@@ -1,4 +1,4 @@
-export interface ICreateComment {
+export interface IComment {
   id: number;
   commentText: string;
   commentAuthorId: string;
