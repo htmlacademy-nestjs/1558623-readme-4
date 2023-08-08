@@ -10,9 +10,7 @@ export class CommentsRepository implements ICRUDRepository<CommentEntity, number
 
   public async create(comment: CommentEntity): Promise<Comment> {
     return this.prismaService.comment.create({
-      data: {
-        ...comment.toObject(),
-      },
+      data: comment.toObject(),
     });
   }
 

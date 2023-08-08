@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, Post, Query } from '@nestjs/common';
 import { CommentsService } from './comments.service';
 import { CreateCommentDto } from './dto/create-comment.dto';
 import { CommentRdo } from './rdo/comment.rdo';
@@ -8,21 +8,21 @@ import { fillObject } from '@libs/utils-core';
 export class CommentsController {
   constructor(private readonly commentsService: CommentsService) {}
 
-  @Get('get/:postId')
-  public async getByPostId(@Param('postId') postId: string): Promise<CommentRdo[]> {
+  @Get()
+  public async getByPostId(@Query('postId') postId: string): Promise<CommentRdo[]> {
     const comments = (await this.commentsService.findManyByPostId(Number(postId))) || [];
     return comments.map((comment) => fillObject(CommentRdo, comment));
   }
 
-  @Post('/create')
+  @Post('create')
   public async create(@Body() dto: CreateCommentDto): Promise<CommentRdo> {
     const comment = await this.commentsService.create(dto);
     return fillObject(CommentRdo, comment);
   }
 
-  @Delete('/delete/:id')
+  @Delete('delete')
   @HttpCode(HttpStatus.NO_CONTENT)
-  public async delete(@Param('id') id: string): Promise<void> {
+  public async delete(@Query('id') id: string): Promise<void> {
     return this.commentsService.delete(Number(id));
   }
 }

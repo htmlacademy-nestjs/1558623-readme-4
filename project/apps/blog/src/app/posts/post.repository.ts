@@ -10,13 +10,13 @@ export class PostRepository implements ICRUDRepository<PostEntity, number, Post>
 
   public async create(entity: PostEntity): Promise<Post> {
     return this.prismaService.post.create({
-      data: { ...entity.toObject() },
+      data: entity.toObject(),
     });
   }
 
   public async update(id: number, entity: PostEntity): Promise<Post | null> {
     return this.prismaService.post.update({
-      data: { ...entity.toObject() },
+      data: entity.toObject(),
       where: { id },
     });
   }

@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Query } from '@nestjs/common';
 import { PostService } from './post.service';
 import { PostRdo } from './rdo/post.rdo';
 import { fillObject } from '@libs/utils-core';
@@ -9,7 +9,7 @@ export class PostController {
   constructor(private readonly postService: PostService) {}
 
   @Get()
-  public async getAll(): Promise<PostRdo[]> {
+  public async getPosts(): Promise<PostRdo[]> {
     const posts = await this.postService.getPosts();
     return posts.map((post) => fillObject(PostRdo, post));
   }
@@ -21,7 +21,7 @@ export class PostController {
   }
 
   @Delete()
-  public async deleteById(@Param('id') id: string): Promise<void> {
+  public async deleteById(@Query('id') id: string): Promise<void> {
     return this.postService.delete(Number(id));
   }
 
