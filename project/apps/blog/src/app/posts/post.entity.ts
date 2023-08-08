@@ -4,7 +4,7 @@ import { Post, PostType } from '@prisma/client';
 export class PostEntity implements IEntity<PostEntity, Partial<Post>>, Partial<Post> {
   public id?: number;
   public type!: PostType;
-  public postAuthorId?: string;
+  public postAuthorId!: string;
   public tagsList!: string[];
   public title!: string | null;
   public description!: string | null;
@@ -20,7 +20,6 @@ export class PostEntity implements IEntity<PostEntity, Partial<Post>>, Partial<P
 
   fillEntity(dto: Partial<Post>) {
     this.type = dto.type as PostType;
-    this.postAuthorId = dto.postAuthorId;
     this.tagsList = dto.tagsList ?? [];
     this.title = dto.title ?? null;
     this.description = dto.description ?? null;
@@ -29,6 +28,9 @@ export class PostEntity implements IEntity<PostEntity, Partial<Post>>, Partial<P
     this.quoteAuthor = dto.quoteAuthor ?? null;
     this.preview = dto.preview ?? null;
     this.likesCount = dto.likesCount ?? 0;
+    if (dto.postAuthorId) {
+      this.postAuthorId = dto.postAuthorId;
+    }
   }
 
   toObject(): PostEntity {
