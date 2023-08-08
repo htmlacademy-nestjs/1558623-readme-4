@@ -9,16 +9,16 @@ import { UpdatePostVideoDto } from './dto/update-post-video.dto';
 import { UpdatePostTextDto } from './dto/update-post-text.dto';
 import { UpdatePostQuoteDto } from './dto/update-post-quote.dto';
 
-export type TPostCreateDto = CreatePostPhotoDto &
-  CreatePostLinkDto &
-  CreatePostVideoDto &
-  CreatePostTextDto &
-  CreatePostQuoteDto;
+export type TPostCreateDto =
+  | CreatePostPhotoDto
+  | CreatePostLinkDto
+  | CreatePostVideoDto
+  | CreatePostTextDto
+  | CreatePostQuoteDto;
 
-export type TPostUpdateDto = UpdatePostPhotoDto &
-  UpdatePostLinkDto &
-  UpdatePostVideoDto &
-  UpdatePostTextDto &
-  UpdatePostQuoteDto;
-
-export type TPostDto = TPostCreateDto & TPostUpdateDto;
+export type TPostUpdateDto =
+  | UpdatePostPhotoDto
+  | UpdatePostLinkDto
+  | UpdatePostVideoDto
+  | UpdatePostTextDto
+  | UpdatePostQuoteDto;

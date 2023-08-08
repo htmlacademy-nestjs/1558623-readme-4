@@ -2,7 +2,7 @@ import { PostType } from '@prisma/client';
 
 export interface IPost {
   type: PostType;
-  postAuthorId?: string;
+  postAuthorId: string;
   tagsList: string[];
   title: string | null;
   description: string | null;

@@ -16,8 +16,8 @@ export class CommentsRepository implements ICRUDRepository<CommentEntity, number
     });
   }
 
-  public async delete(id: number): Promise<Comment | null> {
-    return this.prismaService.comment.delete({
+  public async delete(id: number): Promise<void> {
+    this.prismaService.comment.delete({
       where: { id },
     });
   }
