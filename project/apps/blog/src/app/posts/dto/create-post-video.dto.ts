@@ -1,5 +1,9 @@
+import { PostType } from '@prisma/client';
+
 export class CreatePostVideoDto {
-  title: string;
-  url: string;
+  postAuthorId!: string;
+  type!: PostType;
+  title!: string;
+  url!: string;
   tagsList?: string[];
 }

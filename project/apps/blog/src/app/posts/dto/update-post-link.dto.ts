@@ -1,5 +1,7 @@
+import { PostType } from '@prisma/client';
+
 export class UpdatePostLinkDto {
-  postId: string;
+  type!: PostType;
   url?: string;
   description?: string;
   tagsList?: string[];

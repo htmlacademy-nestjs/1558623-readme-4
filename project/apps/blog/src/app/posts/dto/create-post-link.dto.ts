@@ -1,5 +1,9 @@
+import { PostType } from '@prisma/client';
+
 export class CreatePostLinkDto {
-  url: string;
+  postAuthorId!: string;
+  type!: PostType;
+  url!: string;
   description?: string;
   tagsList?: string[];
 }

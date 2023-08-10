@@ -1,6 +1,9 @@
-import { TPostStatus } from '@project/shared/app-types';
+// TODO: create a enum for PostStatus
+
+import { PostType } from '@prisma/client';
 
 export class SetPostStatusDto {
-  postId: string;
-  postStatus: TPostStatus;
+  type!: PostType;
+  postId!: string;
+  postStatus!: 'dummy';
 }

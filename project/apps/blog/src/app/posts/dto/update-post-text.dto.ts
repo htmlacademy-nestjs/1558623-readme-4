@@ -1,5 +1,7 @@
+import { PostType } from '@prisma/client';
+
 export class UpdatePostTextDto {
-  postId: string;
+  type!: PostType;
   title?: string;
   preview?: string;
   textContent?: string;

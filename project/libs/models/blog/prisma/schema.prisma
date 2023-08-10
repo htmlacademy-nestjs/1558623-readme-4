@@ -1,0 +1,61 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../../../../node_modules/.prisma/client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum PostType {
+  LINK
+  PHOTO
+  QUOTE
+  TEXT
+  VIDEO
+}
+
+model User {
+  id       Int       @id @default(autoincrement())
+  userId   String    @unique
+  posts    Post[]
+  comments Comment[]
+
+  @@map("users")
+}
+
+model Comment {
+  id            Int      @id @unique @default(autoincrement())
+  commentText   String   @map("comment_text")
+  commentAuthor User     @relation(fields: [authorId], references: [userId], onDelete: Cascade, onUpdate: Cascade)
+  authorId      String   @unique @map("author_id")
+  dateCreated   DateTime @default(now()) @map("date_created")
+  post          Post     @relation(fields: [postId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  postId        Int      @map("post_id")
+
+  @@map("comments")
+}
+
+model Post {
+  id           Int       @id @unique @default(autoincrement())
+  type         PostType
+  postAuthor   User      @relation(fields: [postAuthorId], references: [userId], onDelete: Cascade, onUpdate: Cascade)
+  postAuthorId String    @unique @map("post_author_id")
+  dateCreated  DateTime  @default(now()) @map("date_created")
+  dateUpdated  DateTime  @default(now()) @map("date_updated")
+  likesCount   Int       @default(0) @map("likes_count")
+  tagsList     String[]  @map("tags_list")
+  title        String?
+  description  String?
+  url          String?
+  textContent  String?   @map("text_content")
+  quoteAuthor  String?   @map("quote_author")
+  preview      String?
+  comments     Comment[]
+
+  @@map("posts")
+}

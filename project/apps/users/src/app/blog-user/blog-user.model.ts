@@ -1,12 +1,12 @@
-import { IUser } from '@project/shared/app-types';
 import { Document } from 'mongoose';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { IAppUser } from '@libs/shared-app-types';
 
 @Schema({
   collection: 'users',
   timestamps: true,
 })
-export class BlogUserModel extends Document implements IUser {
+export class BlogUserModel extends Document implements IAppUser {
   @Prop({ required: true, unique: true })
   email!: string;
 

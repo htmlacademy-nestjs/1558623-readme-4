@@ -1,5 +1,7 @@
+import { PostType } from '@prisma/client';
+
 export class UpdatePostPhotoDto {
-  postId: string;
+  type!: PostType;
   url?: string;
   tagsList?: string[];
 }

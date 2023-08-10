@@ -1,4 +1,8 @@
+import { PostType } from '@prisma/client';
+
 export class CreatePostPhotoDto {
-  url: string;
+  postAuthorId!: string;
+  type!: PostType;
+  url!: string;
   tagsList?: string[];
 }

@@ -1,5 +1,7 @@
+import { PostType } from '@prisma/client';
+
 export class UpdatePostVideoDto {
-  postId: string;
+  type!: PostType;
   title?: string;
   url?: string;
   tagsList?: string[];

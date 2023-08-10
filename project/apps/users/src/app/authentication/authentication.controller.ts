@@ -1,7 +1,6 @@
 import { Body, Controller, Get, HttpCode, HttpStatus, Param, Post } from '@nestjs/common';
 import { AuthenticationService } from './authentication.service';
 import { CreateUserDto } from './dto/create-user.dto';
-import { fillObject } from '@project/utils/utils-core';
 import { CreateUserRdo } from './rdo/create-user.rdo';
 import { LoginUserDto } from './dto/login-user.dto';
 import { GetUserRdo } from './rdo/get-user.rdo';
@@ -13,6 +12,7 @@ import {
   ApiOkResponse,
   ApiUnauthorizedResponse,
 } from '@nestjs/swagger';
+import { fillObject } from '@libs/utils-core';
 
 @Controller('users')
 export class AuthenticationController {

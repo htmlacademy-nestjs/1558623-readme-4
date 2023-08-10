@@ -1,6 +1,10 @@
+import { PostType } from '@prisma/client';
+
 export class CreatePostTextDto {
-  title: string;
-  preview: string;
-  textContent: string;
+  postAuthorId!: string;
+  type!: PostType;
+  title!: string;
+  preview!: string;
+  textContent!: string;
   tagsList?: string[];
 }

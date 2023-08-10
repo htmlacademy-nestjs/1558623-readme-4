@@ -1,9 +1,10 @@
 import { ApiProperty } from '@nestjs/swagger';
 import {
-  UserPropsExample,
   UserNameLength,
   UserPasswordLength,
-} from '@authentication/authentication.constants';
+  UserPropsExample,
+} from '@apps/users-authentication/authentication.constants';
+
 
 export class CreateUserDto {
   @ApiProperty({

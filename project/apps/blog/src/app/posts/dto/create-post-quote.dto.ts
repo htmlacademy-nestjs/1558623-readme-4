@@ -1,5 +1,9 @@
+import { PostType } from '@prisma/client';
+
 export class CreatePostQuoteDto {
-  textContent: string;
-  quoteAuthor: string;
+  postAuthorId!: string;
+  type!: PostType;
+  textContent!: string;
+  quoteAuthor!: string;
   tagsList?: string[];
 }

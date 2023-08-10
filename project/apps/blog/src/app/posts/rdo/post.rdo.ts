@@ -1,17 +1,43 @@
-import { IAuthor, PostType } from '@project/shared/app-types';
+import { PostType } from '@prisma/client';
+import { Expose } from 'class-transformer';
 
 export class PostRdo {
-  type: PostType;
-  postAuthor: IAuthor;
-  dateCreated: string;
-  id: string;
-  likesCount: number;
-  commentsCount: number;
-  url: string | null;
-  description: string | null;
-  title: string | null;
-  textContent: string | null;
-  quoteAuthor: string | null;
-  preview: string | null;
-  tagsList: string[] | null;
+  @Expose()
+  id!: string;
+
+  @Expose()
+  type!: PostType;
+
+  @Expose()
+  postAuthorId!: number;
+
+  @Expose()
+  dateCreated!: string;
+
+  @Expose()
+  likesCount!: number;
+
+  @Expose()
+  commentsCount!: number;
+
+  @Expose()
+  tagsList!: string[] | null;
+
+  @Expose()
+  title?: string | null;
+
+  @Expose()
+  description?: string | null;
+
+  @Expose()
+  url?: string | null;
+
+  @Expose()
+  textContent?: string | null;
+
+  @Expose()
+  quoteAuthor?: string | null;
+
+  @Expose()
+  preview?: string | null;
 }

@@ -1,8 +1,15 @@
-import { IAuthor } from '@project/shared/app-types';
+import { Expose } from 'class-transformer';
 
 export class CommentRdo {
-  id: string;
-  commentText: string;
-  commentAuthor: IAuthor;
-  dateCreated: string;
+  @Expose()
+  id!: number;
+
+  @Expose()
+  commentText!: string;
+
+  @Expose()
+  authorId!: string;
+
+  @Expose()
+  dateCreated!: string;
 }
