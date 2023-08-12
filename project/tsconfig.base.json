@@ -19,14 +19,14 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@apps/blog-prisma/*": [
+        "apps/blog/src/app/prisma/*"
+      ],
       "@apps/users-authentication/*": [
         "apps/users/src/app/authentication/*"
       ],
       "@apps/users-blog-user/*": [
         "apps/users/src/app/blog-user/*"
-      ],
-      "@apps/blog-prisma/*": [
-        "apps/blog/src/app/prisma/*"
       ],
       "@libs/config-users": [
         "libs/config/users/src/index.ts"
