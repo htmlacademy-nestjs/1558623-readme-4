@@ -28,14 +28,8 @@
       "@apps/users-blog-user/*": [
         "apps/users/src/app/blog-user/*"
       ],
-      "@libs/config-users": [
-        "libs/config/users/src/index.ts"
-      ],
       "@libs/models-blog": [
         "libs/models/blog/src/index.ts"
-      ],
-      "@libs/shared-app-config": [
-        "libs/shared/app-config/src/index.ts"
       ],
       "@libs/shared-app-types": [
         "libs/shared/app-types/src/index.ts"
@@ -46,8 +40,17 @@
       "@libs/utils-types": [
         "libs/utils/types/src/index.ts"
       ],
-      "@project/config/blog": [
+      "@libs/shared-app-config": [
+        "libs/shared/app-config/src/index.ts"
+      ],
+      "@libs/config-blog": [
         "libs/config/blog/src/index.ts"
+      ],
+      "@libs/config-uploader": [
+        "libs/config/uploader/src/index.ts"
+      ],
+      "@libs/config-users": [
+        "libs/config/users/src/index.ts"
       ]
     }
   },
