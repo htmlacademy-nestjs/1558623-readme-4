@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import appConfig from '@libs/shared-app-config';
 import uploaderConfig from './uploader.config';
+import { appConfig, mongoDbConfig } from '@libs/shared-config';
 
 const ENV_FILE_PATH = 'apps/uploader/.env';
 
@@ -11,7 +11,7 @@ const ENV_FILE_PATH = 'apps/uploader/.env';
       isGlobal: true,
       cache: true,
       envFilePath: ENV_FILE_PATH,
-      load: [appConfig, uploaderConfig],
+      load: [appConfig, uploaderConfig, mongoDbConfig],
     }),
   ],
 })

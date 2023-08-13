@@ -40,8 +40,8 @@
       "@libs/utils-types": [
         "libs/utils/types/src/index.ts"
       ],
-      "@libs/shared-app-config": [
-        "libs/shared/app-config/src/index.ts"
+      "@libs/shared-config": [
+        "libs/shared/config/src/index.ts"
       ],
       "@libs/config-blog": [
         "libs/config/blog/src/index.ts"
