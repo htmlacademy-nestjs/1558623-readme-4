@@ -7,6 +7,8 @@
     "users:down": "docker compose --file apps/users/docker-compose.dev.yml --project-name \"readme-users\" down",
     "blog:up": "docker compose --file apps/blog/docker-compose.dev.yml --project-name \"readme-blog\" up -d",
     "blog:down": "docker compose --file apps/blog/docker-compose.dev.yml --project-name \"readme-blog\" down",
+    "uploader:up": "docker compose --file apps/uploader/docker-compose.dev.yml --project-name \"readme-uploader\" up -d",
+    "uploader:down": "docker compose --file apps/uploader/docker-compose.dev.yml --project-name \"readme-uploader\" down",
     "blog:db:seed": "npx nx run models-blog-models:db:seed"
   },
   "private": true,
