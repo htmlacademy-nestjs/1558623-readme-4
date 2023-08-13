@@ -4,7 +4,7 @@ import * as Joi from 'joi';
 
 export default registerAs('uploader', (): IUploaderConfig => {
   const config: IUploaderConfig = {
-    uploadDirectory: process.env.UPLOAD_DIRECTORY,
+    uploadDirectory: process.env.UPLOAD_DIRECTORY || 'uploads',
   };
 
   const uploaderSchema = Joi.object<IUploaderConfig, true, IUploaderConfig>({
