@@ -1,6 +1,8 @@
 import { Controller, Post, UploadedFile, UseInterceptors } from '@nestjs/common';
 import { FileService } from './file.service';
 import { FileInterceptor } from '@nestjs/platform-express';
+import { fillObject } from '@libs/utils-core';
+import { UploadFileRdo } from './rdo/upload-file.rdo';
 
 @Controller('files')
 export class FileController {
@@ -9,6 +11,7 @@ export class FileController {
   @Post('/upload')
   @UseInterceptors(FileInterceptor('file'))
   public async uploadFile(@UploadedFile() file: Express.Multer.File) {
-    return this.fileService.writeFile(file);
+    const newFile = await this.fileService.saveFile(file);
+    return fillObject(UploadFileRdo, newFile);
   }
 }

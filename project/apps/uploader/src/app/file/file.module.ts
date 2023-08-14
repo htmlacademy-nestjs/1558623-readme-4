@@ -3,8 +3,10 @@ import { FileController } from './file.controller';
 import { FileService } from './file.service';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { ConfigService } from '@nestjs/config';
-
-const SERVE_ROOT = '/static';
+import { MongooseModule } from '@nestjs/mongoose';
+import { FileModel, FileSchema } from './file.model';
+import { FileRepository } from './file.repository';
+import { join } from 'node:path';
 
 @Module({
   imports: [
@@ -15,17 +17,23 @@ const SERVE_ROOT = '/static';
         return [
           {
             rootPath,
-            serveRoot: SERVE_ROOT,
+            serveRoot: join(__dirname, 'static'),
             serveStaticOptions: {
               fallthrough: true,
               etag: true,
-            }
+            },
           },
         ];
       },
     }),
+    MongooseModule.forFeature([
+      {
+        name: FileModel.name,
+        schema: FileSchema,
+      },
+    ]),
   ],
   controllers: [FileController],
-  providers: [FileService],
+  providers: [FileService, FileRepository],
 })
 export class FileModule {}
