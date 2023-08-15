@@ -1,17 +1,18 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import uploaderConfig from './uploader.config';
 import { appConfig, mongoDbConfig } from '@libs/shared-config';
 
-const USERS_ENV_FILE_PATH = 'apps/users/.env';
+const ENV_FILE_PATH = 'apps/uploader/.env';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
       cache: true,
-      envFilePath: USERS_ENV_FILE_PATH,
-      load: [appConfig, mongoDbConfig],
+      envFilePath: ENV_FILE_PATH,
+      load: [appConfig, uploaderConfig, mongoDbConfig],
     }),
   ],
 })
-export class ConfigUsersModule {}
+export class ConfigUploaderModule {}

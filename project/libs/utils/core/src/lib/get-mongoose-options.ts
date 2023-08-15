@@ -7,12 +7,12 @@ export const getMongooseOptions = (): MongooseModuleAsyncOptions => {
     useFactory: (config: ConfigService) => {
       return {
         uri: getMongoConnectionString({
-          dbName: config.get('usersDb.dbName'),
-          dbPassword: config.get('usersDb.dbPassword'),
-          dbPort: config.get('usersDb.dbPort'),
-          dbHost: config.get('usersDb.dbHost'),
-          dbUser: config.get('usersDb.dbUser'),
-          dbAuthBase: config.get('usersDb.dbAuthBase'),
+          dbName: config.get('mongo.dbName'),
+          dbPassword: config.get('mongo.dbPassword'),
+          dbPort: config.get('mongo.dbPort'),
+          dbHost: config.get('mongo.dbHost'),
+          dbUser: config.get('mongo.dbUser'),
+          dbAuthBase: config.get('mongo.dbAuthBase'),
         }),
       };
     },

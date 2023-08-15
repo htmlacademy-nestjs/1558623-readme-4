@@ -2,7 +2,7 @@ import { registerAs } from '@nestjs/config';
 import * as Joi from 'joi';
 import { IMongoDbConfig } from '@libs/shared-app-types';
 
-export default registerAs('usersDb', (): IMongoDbConfig => {
+export default registerAs('mongo', (): IMongoDbConfig => {
   const config: IMongoDbConfig = {
     dbName: process.env.MONGO_NAME,
     dbHost: process.env.MONGO_HOST,

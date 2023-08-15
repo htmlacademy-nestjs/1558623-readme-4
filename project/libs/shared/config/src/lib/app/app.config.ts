@@ -18,7 +18,7 @@ export default registerAs('app', (): IAppConfig => {
   if (error) {
     throw new Error(`
       [Application Config]: Environments validation failed. Please check .env file.
-      Error message: Mongo.${error.message},
+      Error message: ${error.message},
     `);
   }
 
